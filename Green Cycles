@@ -3,23 +3,23 @@
 --Queried using pgAdmin for PostgreSQL
 
 # Create a list of all the distinct districts customers are from
-list_of_distinct_districts = SELECT DISTINCT
-                             district
-                             FROM address
+SELECT DISTINCT
+district
+FROM address
 
 # What is the latest rental date?
-latest_rental_date = SELECT
-                     rental_date
-                     FROM rental
-                     ORDER BY rental_date DESC
-                     LIMIT 1
+SELECT
+rental_date
+FROM rental
+ORDER BY rental_date DESC
+LIMIT 1
 
 # How many films does the company have?
-number_of_films = SELECT
-                  COUNT (*)
-                  FROM film
+SELECT
+COUNT (*)
+FROM film
 
 # How many distinct last names of customers are there?
-count_distinct_customer_lastname = SELECT
-                                   COUNT (DISTINCT last_name)
-                                   FROM customer
+SELECT
+COUNT (DISTINCT last_name)
+FROM customer
