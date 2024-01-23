@@ -1,0 +1,35 @@
+--This SQL provides insight into customer and order data
+--Source: Database with 5 tables containing customer data and data of invoices and orders over a 3 year period
+--Tool: Microsoft Access
+
+--Are there any invoices missing an order id?
+SELECT Invoices.InvoiceID, Orders.OrderID
+FROM Invoices LEFT JOIN Orders ON Invoices.OrderID = Orders.OrderID
+WHERE (((Orders.OrderID) Is Null));
+
+--Are there any orders missing invoices?
+SELECT Orders.OrderID, Invoices.InvoiceID
+FROM Orders LEFT JOIN Invoices ON Orders.OrderID = Invoices.OrderID
+WHERE (((Invoices.InvoiceID) Is Null));
+
+--Copy over missing orders
+INSERT INTO Orders ( OrderID, CustomerID, SalespersonPersonID, PickedByPersonID, ContactPersonID, BackorderOrderID, OrderDate, ExpectedDeliveryDate, CustomerPurchaseOrderNumber, IsUndersupplyBackordered, Comments, DeliveryInstructions, InternalComments, PickingCompletedWhen, LastEditedBy, LastEditedWhen )
+SELECT MissingOrders.OrderID, MissingOrders.CustomerID, MissingOrders.SalespersonPersonID, MissingOrders.PickedByPersonID, MissingOrders.ContactPersonID, MissingOrders.BackorderOrderID, MissingOrders.OrderDate, MissingOrders.ExpectedDeliveryDate, MissingOrders.CustomerPurchaseOrderNumber, MissingOrders.IsUndersupplyBackordered, MissingOrders.Comments, MissingOrders.DeliveryInstructions, MissingOrders.InternalComments, MissingOrders.PickingCompletedWhen, MissingOrders.LastEditedBy, MissingOrders.LastEditedWhen
+FROM MissingOrders;
+
+--Copy over missing invoices
+INSERT INTO Invoices ( InvoiceID, CustomerID, OrderID, SalespersonPersonID, InvoiceDate, CustomerPurchaseOrderNumber, ConfirmedDeliveryTime, ConfirmedReceivedBy )
+SELECT MissingInvoices.InvoiceID, MissingInvoices.CustomerID, MissingInvoices.OrderID, MissingInvoices.SalespersonPersonID, MissingInvoices.InvoiceDate, MissingInvoices.CustomerPurchaseOrderNumber, MissingInvoices.ConfirmedDeliveryTime, MissingInvoices.ConfirmedReceivedBy
+FROM MissingInvoices;
+
+--Total number of orders by customer
+SELECT Customers.CustomerID, Customers.CustomerName, Count(Orders.OrderID) AS CountOfOrderID
+FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+GROUP BY Customers.CustomerID, Customers.CustomerName
+ORDER BY Count(Orders.OrderID) DESC;
+
+--Top 50 customers by orders total
+SELECT CustomersList.CustomerName, Sum(OrdersDetailLineTotal.LineTotal) AS SumOfLineTotal
+FROM (CustomersList INNER JOIN Orders ON CustomersList.CustomerID = Orders.CustomerID) INNER JOIN OrdersDetailLineTotal ON Orders.OrderID = OrdersDetailLineTotal.OrderID
+GROUP BY CustomersList.CustomerName
+ORDER BY Sum(OrdersDetailLineTotal.LineTotal) DESC;
