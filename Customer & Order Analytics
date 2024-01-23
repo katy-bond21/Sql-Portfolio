@@ -1,6 +1,6 @@
 --This SQL provides insight into customer and order data
 --Source: Database with 5 tables containing customer data and data of invoices and orders over a 3 year period
---Tool: Microsoft Access
+--Queried using Microsoft Access
 
 --Are there any invoices missing an order id?
 SELECT Invoices.InvoiceID, Orders.OrderID
