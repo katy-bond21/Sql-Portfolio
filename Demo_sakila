@@ -11,4 +11,16 @@ AND description LIKE '%drama%'
 SELECT CONCAT (UPPER(LEFT(title,1)), LOWER(SUBSTR(title,2,))) as title
 FROM 'film'
 
-#
+# Return the rating and row count from film table, grouped by rating, where length <90 and average replacement_cost <20
+SELECT rating, count(*)
+FROM film
+WHERE length < 90
+GROUP BY rating
+HAVING AVG (replacement_cost) < 20
+
+# Return all data from the film, film_category, and category tables. Filter for comedies.
+SELECT concat(f.film_id,'_',c.category_id), description, c.name
+FROM
+film f JOIN film_category fc ON f.film_id = fc.film_id
+JOIN category c ON c.category_id = fc.category_id
+WHERE c.name = 'comedy'
