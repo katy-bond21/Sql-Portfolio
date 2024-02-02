@@ -3,6 +3,8 @@ This repository contains examples of SQL I've written for personal projects and 
 
 Below are a few highlighted projects, including data visualisations I created using Tableau Public. Feel free to take a look and [reach out](https://www.linkedin.com/in/katy-b-3a0147282/) if you have any feedback or questions.
 
+## Highlighted Projects
+* **Employee Management and Analysis for Green Cycles** - [SQL](https://github.com/katy-bond21/Sql-Portfolio/blob/main/Employee%20Management%20and%20Analysis%20for%20Green%20Cycles): This SQL project involves the creation and manipulation of tables for a dataset named "Green Cycles" sourced from Nikolai Schuler's course on Udemy, queried using pgAdmin for PostgreSQL. The tasks include defining tables for employees and departments, altering table structures, inserting data, and performing various updates and queries. Notable tasks include creating a view for employee information, calculating average salaries for positions and divisions, creating a ranking based on salary within departments, and finding the highest-paid employees within their respective positions and departments.
 
 
 ### Is South Africa on the Brink of Darkness? - [Tableau](https://public.tableau.com/app/profile/katy.bond/viz/IsSouthAfricaontheBrinkofDarkness/IsSouthAfricaontheBrinkofDarkness3)
