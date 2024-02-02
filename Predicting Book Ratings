@@ -1,9 +1,18 @@
 --Create a table containing data from my goodreads_library
-CREATE TABLE characters
+CREATE TABLE goodreads_library
 (id serial,
-first_name varchar,
-last_name varchar,
-family varchar
+title varchar,
+series varchar,
+series_number numeric,
+author varchar,
+my_rating numeric,
+avg_rating numeric,
+format varchar,
+num_pages numeric,
+year_published varchar,
+org_publication_year varchar,
+date_read date,
+genre varchar
 );
 
 --Import csv file
