@@ -1,0 +1,23 @@
+--Display all books I've rated through Goodreads from highest to lowest rating
+SELECT title, author, my_rating, goodreads_rating 
+    FROM books_read 
+    ORDER BY my_rating DESC;
+
+--Display which authors I've read more than once, sorted from most to least works read
+SELECT author, COUNT(*) AS total_by_author 
+    FROM books_read 
+    GROUP BY author
+    HAVING total_by_author > 1
+    ORDER BY total_by_author DESC;
+    
+--Which books did I rate higher than the Goodreads average rating?
+SELECT title, author, my_rating, goodreads_rating
+    FROM books_read
+    WHERE my_rating > goodreads_rating
+    ORDER BY my_rating DESC;
+    
+--Which books did I rate lower than the Goodreads average rating?
+SELECT title, author, goodreads_rating, my_rating
+    FROM books_read
+    WHERE my_rating < goodreads_rating
+    ORDER BY goodreads_rating DESC;
