@@ -6,7 +6,7 @@ Below are a few highlighted projects, including data visualisations I created us
 ## Highlighted Projects
 * **Employee Management and Analysis for Green Cycles** - [SQL](https://github.com/katy-bond21/Sql-Portfolio/blob/main/Employee%20Management%20and%20Analysis%20for%20Green%20Cycles): This SQL project involves the creation and manipulation of tables for a dataset named "Green Cycles" sourced from Nikolai Schuler, queried using pgAdmin for PostgreSQL. The tasks include defining tables for employees and departments, altering table structures, inserting data, and performing various updates and queries. Notable tasks include creating a view for employee information, calculating average salaries for positions and divisions, creating a ranking based on salary within departments, and finding the highest-paid employees within their respective positions and departments.
 
-* **Predictive Book Ratings Analysis** - [SQL](): In this project, 
+* **Predictive Book Ratings Analysis** - [SQL](https://github.com/katy-bond21/Sql-Portfolio/blob/main/Predicting%20Book%20Ratings): In this project, 
 
 ### Is South Africa on the Brink of Darkness? - [Tableau](https://public.tableau.com/app/profile/katy.bond/viz/IsSouthAfricaontheBrinkofDarkness/IsSouthAfricaontheBrinkofDarkness3)
 - **Data:** [Eskom Data Portal](https://www.eskom.co.za/dataportal/)
