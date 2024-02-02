@@ -24,7 +24,6 @@ department_id SERIAL PRIMARY KEY,
 department TEXT NOT NULL,
 division TEXT NOT NULL);
 
-
 # Alter the employees table.
 
 ALTER TABLE employees 
@@ -96,12 +95,12 @@ UPDATE employees
 SET salary=salary*1.06
 WHERE position_title LIKE '%SQL Analyst';
 
-# TASK 4.4
+# What is the average salary of a SQL Analyst in the company (excluding Senior SQL Analyst)?
 
 SELECT ROUND(AVG(salary),2) FROM employees
 WHERE position_title='SQL Analyst'
 
-# TASK 5
+# Write a query that adds a column called manager that contains  first_name and last_name (in one column) in the data output. Secondly, add a column called is_active with 'false' if the employee has left the company already, otherwise the value is 'true'.
 
 SELECT 
 emp.*,
@@ -113,7 +112,7 @@ FROM employees emp
 LEFT JOIN employees mng
 ON emp.manager_id=mng.emp_id;
 
-# TASK 5.2
+# Create a view called v_employees_info from that previous query.
 
 CREATE VIEW v_employees_info
 AS
@@ -127,7 +126,7 @@ FROM employees emp
 LEFT JOIN employees mng
 ON emp.manager_id=mng.emp_id;
 
-# TASK 6
+# Write a query that returns the average salaries for each positions with appropriate roundings.
 
 SELECT 
 position_title,
@@ -136,7 +135,7 @@ FROM v_employees_info
 GROUP BY position_title
 ORDER BY 2;
 
-# TASK 7
+# Write a query that returns the average salaries per division.
 
 SELECT 
 division,
@@ -147,7 +146,7 @@ ON e.department_id=d.department_id
 GROUP BY division
 ORDER BY 2 
 
-# TASK 8.1
+# Write a query that returns the following: emp_id, first_name, last_name, position_title, salary and a column that returns the average salary for every job_position. Order the results by the emp_id.
 
 SELECT
 emp_id,
@@ -159,7 +158,7 @@ ROUND(AVG(salary) OVER(PARTITION BY position_title),2) as avg_position_sal
 FROM employees
 ORDER BY 1;
 
-# TASK 8.2
+# How many people earn less than there avg_position_salary? Write a query that answers that question. Ideally, the output just shows that number directly.
 
 SELECT
 COUNT(*)
@@ -171,7 +170,7 @@ ROUND(AVG(salary) OVER(PARTITION BY position_title),2) as avg_pos_sal
 FROM employees) a
 WHERE salary<avg_pos_sal;
 
-# TASK 9
+# Write a query that returns a running total of the salary development ordered by the start_date.
 
 SELECT 
 emp_id,
@@ -180,7 +179,7 @@ start_date,
 SUM(salary) OVER(ORDER BY start_date) as salary_totals
 FROM employees;
 
-# TASK 10
+# Create the same running total but now also consider the fact that people were leaving the company.
 
 SELECT 
 start_date,
@@ -200,7 +199,7 @@ FROM v_employees_info
 WHERE is_active ='false'
 ORDER BY start_date) a 
 
-# TASK 11.1
+# Write a query that outputs only the top earner per position_title including first_name and position_title and their salary.
 
 SELECT
 first_name,
@@ -211,7 +210,7 @@ WHERE salary = (SELECT MAX(salary)
 			   FROM employees e2
 			   WHERE e1.position_title=e2.position_title)
 
-# TASK 11.2
+# Add also the average salary per position_title.
 
 SELECT
 first_name,
@@ -224,7 +223,7 @@ WHERE salary = (SELECT MAX(salary)
 			   FROM employees e2
 			   WHERE e1.position_title=e2.position_title)
 
-# TASK 11.3
+# Remove those employees from the output of the previous query that has the same salary as the average of their position_title.
 
 SELECT
 first_name,
@@ -239,7 +238,7 @@ WHERE salary = (SELECT MAX(salary)
 AND salary<>(SELECT ROUND(AVG(salary),2) as avg_in_pos FROM employees e3
 WHERE e1.position_title=e3.position_title)
 
-# TASK 12
+# Write a query that returns all meaningful aggregations of sum of salary, number of employees, average salary, grouped by all meaningful combinations of division, department, position_title.
 
 SELECT 
 division,
@@ -258,7 +257,7 @@ position_title
 )
 ORDER BY 1,2,3
 
-# TASK 13
+# Write a query that returns all employees (emp_id) including their position_title, department, their salary, and the rank of that salary partitioned by department. The highest salary per division should have rank 1.
 
 SELECT
 emp_id,
@@ -269,7 +268,7 @@ RANK() OVER(PARTITION BY department ORDER BY salary DESC)
 FROM employees
 NATURAL LEFT JOIN departments
 
-# TASK 14
+# Write a query that returns only the top earner of each department including their emp_id, position_title, department, and their salary.
 
 SELECT * FROM
 (
