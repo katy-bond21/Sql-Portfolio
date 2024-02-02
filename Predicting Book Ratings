@@ -48,3 +48,23 @@ SELECT genre, AVG(my_rating) as average_rating, COUNT(*) as by_genre FROM goodre
     GROUP BY genre
     ORDER BY average_rating DESC;
 
+--Create table containing Women's Prize winners after 2015
+CREATE TABLE womens_prize_winners (
+    title TEXT,
+    author TEXT,
+    year_won INTEGER,
+    genre TEXT,
+    avg_rating INTEGER);
+
+==Insert values
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('Demon Copperhead', 'Barbara Kingsolver', 2023, 'historical-fiction', 4.52);
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('The Book of Form & Emptiness', 'Ruth Ozeki', 2022, 'fantasy', 4.04);
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('Piranesi', 'Susanna Clarke', 2021, 'fantasy', 4.23);
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('Hamnet', 'Maggie O''Farrell', 2020, 'historical-fiction', 4.21);
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('An American Marriage', 'Tayari Jones', 2019, 'contemporary', 3.94);
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('Home Fire', 'Kamila Shamsie', 2018, 'contemporary', 4.03);
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('The Power', 'Naomi Alderman', 2017, 'science-fiction', 3.77);
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('Glorious Heresies', 'Lisa McInerney', 2016, 'contemporary', 3.76);
+        INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('How to be Both', 'Ali Smith', 2015, 'historical-fiction', 3.66);
+
+
