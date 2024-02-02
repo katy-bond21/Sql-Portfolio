@@ -14,3 +14,14 @@ SELECT title, author, avg_rating , my_rating
     FROM goodreads_library
     WHERE my_rating < avg_rating 
     ORDER BY avg_rating  DESC;
+
+--Display table data sorted by genre
+SELECT genre, COUNT(*) as by_genre FROM goodreads_library
+    GROUP BY genre
+    ORDER BY by_genre DESC;
+
+--What is my average rating for each genre?
+SELECT genre, AVG(my_rating) as average_rating, COUNT(*) as by_genre FROM goodreads_library
+    GROUP BY genre
+    ORDER BY average_rating DESC;
+
