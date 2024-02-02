@@ -56,7 +56,7 @@ CREATE TABLE womens_prize_winners (
     genre TEXT,
     avg_rating INTEGER);
 
-==Insert values
+--Insert values
         INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('Demon Copperhead', 'Barbara Kingsolver', 2023, 'historical-fiction', 4.52);
         INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('The Book of Form & Emptiness', 'Ruth Ozeki', 2022, 'fantasy', 4.04);
         INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('Piranesi', 'Susanna Clarke', 2021, 'fantasy', 4.23);
