@@ -1,3 +1,17 @@
+--Create a table containing data from my goodreads_library
+CREATE TABLE characters
+(id serial,
+first_name varchar,
+last_name varchar,
+family varchar
+);
+
+--Import csv file
+        COPY goodreads_library
+        FROM 'C:\Users\katyb\Desktop\goodreads_library.csv'
+        DELIMITER ','
+        CSV HEADER;
+
 --Display all books I've rated through Goodreads from highest to lowest rating
 SELECT title, author, my_rating, avg_rating 
     FROM  goodreads_library
