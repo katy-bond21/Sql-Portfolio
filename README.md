@@ -14,7 +14,7 @@ Below are a few highlighted projects, including data visualisations I created us
 - **Audience:** Sales executives
 - **Purpose:** Identify company key metrics by region and state
 
-In this dashboard, I used sample soda sales from 2020 to 2023. 
+In this dashboard, I used sample soda sales from 2020 to 2023. Sales executives can gain valuable insights into the company's performance dynamics, enabling them to make informed decisions, optimise strategies, and drive overall sales growth. The interactive nature of the dashboard enhances its usability, making it a powerful tool for ongoing performance monitoring and strategic planning.
 
 ### Is South Africa on the Brink of Darkness? - [Tableau](https://public.tableau.com/app/profile/katy.bond/viz/IsSouthAfricaontheBrinkofDarkness/IsSouthAfricaontheBrinkofDarkness3)
 - **Data:** [Eskom Data Portal](https://www.eskom.co.za/dataportal/)
