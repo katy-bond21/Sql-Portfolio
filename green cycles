@@ -1,0 +1,79 @@
+
+
+--Create a list of all the different (distinct) replacement costs of the films.
+SELECT DISTINCT replacement_cost 
+FROM film
+ORDER BY 1
+
+--Write a query that gives an overview of how many films have replacements costs in the following cost ranges.
+SELECT 
+CASE 
+WHEN replacement_cost BETWEEN 9.99 AND 19.99
+THEN 'low'
+WHEN replacement_cost BETWEEN 20 AND 24.99
+THEN 'medium'
+ELSE 'high'
+END as cost_range,
+COUNT(*)
+FROM film
+GROUP BY cost_range
+
+--Create a list of the film titles including their title, length, and category name ordered descendingly by length. Filter the results to only the movies in the category 'Drama' or 'Sports'.
+SELECT 
+title,
+name,
+length
+FROM film f
+LEFT JOIN film_category fc
+ON f.film_id=fc.film_id
+LEFT JOIN category c
+ON c.category_id=fc.category_id
+WHERE name = 'Sports' OR name = 'Drama'
+ORDER BY length DESC
+
+--Create an overview of how many movies (titles) there are in each category (name). Which category (name) is the most common among the films?
+SELECT
+name,
+COUNT(title)
+FROM film f
+INNER JOIN film_category fc
+ON f.film_id=fc.film_id
+INNER JOIN category c
+ON c.category_id=fc.category_id
+GROUP BY name
+ORDER BY 2 DESC
+
+--Create an overview of the actors' first and last names and in how many movies they appear in. 
+SELECT 
+first_name,
+last_name,
+COUNT(*)
+FROM actor a
+LEFT JOIN film_actor fa
+ON fa.actor_id=a.actor_id
+LEFT JOIN film f
+ON fa.film_id=f.film_id
+GROUP BY first_name, last_name
+ORDER BY COUNT(*) DESC
+
+--Create an overview of the addresses that are not associated to any customer. 
+SELECT * FROM address a
+LEFT JOIN customer c
+ON c.address_id = a.address_id
+WHERE c.first_name is null
+
+--Create the overview of the sales  to determine the from which city (we are interested in the city in which the customer lives, not where the store is) most sales occur. What city is that and how much is the amount?
+
+--Create an overview of the revenue (sum of amount) grouped by a column in the format "country, city". Which country, city has the least sales?
+
+--Create a list with the average of the sales amount each staff_id has per customer. Which staff_id makes on average more revenue per customer?
+
+ --Create a query that shows average daily revenue of all Sundays. What is the daily average revenue of all Sundays?
+
+--Create a list of movies - with their length and their replacement cost - that are longer than the average length in each replacement cost group. Which two movies are the shortest on that list and how long are they?
+
+--Create a list that shows the "average customer lifetime value" grouped by the different districts. Which district has the highest average customer lifetime value?
+
+--Create a list that shows all payments including the payment_id, amount, and the film category (name) plus the total amount that was made in this category. Order the results ascendingly by the category (name) and as second order criterion by the payment_id ascendingly.
+
+--Create a list with the top overall revenue of a film title (sum of amount per title) for each category (name). 
