@@ -9,6 +9,13 @@ Below are a few highlighted projects, including data visualisations I created us
   
 * **Employee Management and Analysis for Green Cycles** - [SQL](https://github.com/katy-bond21/Sql-Portfolio/blob/main/Employee%20Management%20and%20Analysis%20for%20Green%20Cycles): This SQL project involves the creation and manipulation of tables for a dataset named "Green Cycles" sourced from Nikolai Schuler, queried using pgAdmin for PostgreSQL. The tasks include defining tables for employees and departments, altering table structures, inserting data, and performing various updates and queries. Notable tasks include creating a view for employee information, calculating average salaries for positions and divisions, creating a ranking based on salary within departments, and finding the highest-paid employees within their respective positions and departments.
 
+### KPI Dashboard - [Tableau](https://public.tableau.com/app/profile/katy.bond/viz/KPIDashboard_17071400266680/Dashboard1) 
+- **Data:** Sample Soda Sales from data.world
+- **Audience:** Sales executives
+- **Purpose:** Identify company key metrics by region and state
+
+In this dashboard, I used sample soda sales from 2020 to 2023. 
+
 ### Is South Africa on the Brink of Darkness? - [Tableau](https://public.tableau.com/app/profile/katy.bond/viz/IsSouthAfricaontheBrinkofDarkness/IsSouthAfricaontheBrinkofDarkness3)
 - **Data:** [Eskom Data Portal](https://www.eskom.co.za/dataportal/)
 - **Audience:** Anyone interested in the energy crisis in South Africa
