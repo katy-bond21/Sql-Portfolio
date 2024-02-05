@@ -72,9 +72,6 @@ SELECT genre, ROUND(avg_rating - my_rating, 2) AS rating_difference FROM goodrea
     GROUP BY genre, avg_rating, my_rating
     ORDER BY rating_difference DESC;
 
---Create table predicting my ratings per genre based on the difference between my ratings and Goodreads' average ratings
-CREATE TABLE predicting_ratings (
-    genre TEXT,
-    average_rating_difference INTEGER);
+
 
 
