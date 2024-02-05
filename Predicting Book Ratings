@@ -67,4 +67,14 @@ CREATE TABLE womens_prize_winners (
         INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('Glorious Heresies', 'Lisa McInerney', 2016, 'contemporary', 3.76);
         INSERT INTO womens_prize_winners (title, author, year_won, genre, avg_rating) VALUES ('How to be Both', 'Ali Smith', 2015, 'historical-fiction', 3.66);
 
+--What is the average difference between my ratings and Goodreads' average ratings for each genre read?
+SELECT genre, ROUND(avg_rating - my_rating, 2) AS rating_difference FROM goodreads_library
+    GROUP BY genre, avg_rating, my_rating
+    ORDER BY rating_difference DESC;
+
+--Create table predicting my ratings per genre based on the difference between my ratings and Goodreads' average ratings
+CREATE TABLE predicting_ratings (
+    genre TEXT,
+    average_rating_difference INTEGER);
+
 
