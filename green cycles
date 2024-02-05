@@ -1,4 +1,6 @@
-
+--Dataset: Green Cycles from Nikolai Schuler 
+--Source: https://www.udemy.com/course/15-days-of-sql
+--Queried using pgAdmin for PostgreSQL
 
 --Create a list of all the different (distinct) replacement costs of the films.
 SELECT DISTINCT replacement_cost 
