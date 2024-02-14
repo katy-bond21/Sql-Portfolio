@@ -34,6 +34,26 @@ FROM payment
 WHERE amount >= 2
 ORDER BY amount DESC;
 
+/*The support manager asks you about a list of
+all the payments of customers 322, 346 and 354
+where the amount is either less than $2 or 
+greater than $10.
+
+It should be ordered by customer first (ascending) 
+and then as a second condition order by amount in
+descending order.*/
+
+SELECT *
+FROM payment
+WHERE
+(customer_id = 322 OR customer_id = 346 OR customer_id = 354)
+AND
+(amount < 2 OR amount > 10)
+ORDER BY customer_id ASC, amount DESC;
+
+
+
+
 /*How many movies are there that contain 'Saga'
 in the description and where the title 
 starts either with an 'A' or ends with an 'R'?
