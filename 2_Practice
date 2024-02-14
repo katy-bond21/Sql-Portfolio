@@ -15,6 +15,25 @@ last_name
 FROM customer
 WHERE first_name = 'ERICA';
 
+/*The inventory manager asks you how rentals 
+have not been returned yet (return_date is null)*/
+
+SELECT
+COUNT (*)
+FROM rental
+WHERE return_date is null;
+
+/*The sales manager asks you for a list of all
+the payment_ids with an amount less than or equal
+to $2. Include payment_id and amount.*/
+
+SELECT 
+payment_id,
+amount
+FROM payment
+WHERE amount >= 2
+ORDER BY amount DESC;
+
 /*How many movies are there that contain 'Saga'
 in the description and where the title 
 starts either with an 'A' or ends with an 'R'?
