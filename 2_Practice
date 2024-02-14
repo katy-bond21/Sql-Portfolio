@@ -41,7 +41,10 @@ AND (last_name LIKE '%Y'
 OR last_name LIKE '%X');
 
 /*How many movies are there that contain 'Saga'
-in the description and where the title starts either with an 'A'
+in the description and where the title 
+starts either with an 'A' or ends with an 'R'?
+Use the alias of 'number_of_movies'.*/
+
 SELECT 
 COUNT (*) AS number_of_movie
 FROM film
