@@ -1,3 +1,61 @@
+/*The marketing manager asks for a list
+of all customers with first name, last name
+and the customers email address.*/
+
+SELECT
+first_name,
+last_name,
+email
+FROM customer;
+
+/*The marketing manager asks you to order the 
+customer list by the last name. In case of the 
+same last name the order should be based on the 
+first name - also from 'Z' to 'A'.*/
+
+SELECT
+first_name,
+last_name,
+email
+FROM customer
+ORDER BY last_name DESC, first_name ASC;
+
+/*A marketing team member asks you about the 
+different prices that have been paid.
+To make it easier for them order the prices 
+from high to low.*/
+
+SELECT DISTINCT
+amount
+FROM payment
+ORDER BY amount DESC;
+
+/*Create a list of all distinct districts
+customers are from.*/
+
+SELECT DISTINCT
+district
+FROM address;
+
+--What is the latest rental date?
+
+SELECT 
+rental_date
+FROM rental
+ORDER BY rental_date DESC;
+
+--How many films does the company have?
+
+SELECT 
+COUNT (*)
+FROM film;
+
+--How many distinct last names of the customers are there?
+
+SELECT
+COUNT(DISTINCT last_name)
+FROM customer;
+
 /*How many payments were made by the customer
 with customer_id = 100?*/
 
